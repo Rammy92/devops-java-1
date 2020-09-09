@@ -13,6 +13,7 @@ public class test4 {
     while (isRunning) {
     System.out.println("Please enter a number: ");
     double x = sc.nextDouble();
+
     System.out.println("Enter another number: ");
     double y = sc.nextDouble();
     sc.nextLine();
@@ -29,38 +30,39 @@ public class test4 {
     if (input.equals("1")) {
       
       System.out.println("The answer is " + addition(x, y)+"\n" );
-      isRunning = true;
+      
     }
       if (input.equals("2")) {
         
         System.out.println("The answer is " + subtraction(x, y)+"\n" );
-        isRunning = true;
+        
          } 
            if (input.equals("3")) {
           
           System.out.println("The answer is " + multiplication(x, y)+"\n");
-          isRunning = true;
+          
             }
             if (input.equals("4")) {
             
             System.out.println("The answer is " +""+ division(x, y)+"\n" ); 
-            isRunning = true;
+            
             }
-            else {
+            if (!input.equals("1") && !input.equals("2") && !input.equals("3") && !input.equals("4")) {
                 System.out.println("Please enter an optation!");
-            isRunning = false;        
+                    
                 
             }
+            else {
         
 
-            System.out.println("Do you want to continue?Yes/No");
+            System.out.println("Do you want to continue?Y/N");
          String answer = sc.nextLine();
 
-          if (answer.equals("Yes")) {
+          if (answer.equals("Y")) {
             System.out.println("" );
-            isRunning = true;
+            
           }
-          if (answer.equals("No")) {
+          else if (answer.equals("N")) {
             System.out.print("EXIT");
             isRunning = false;
           }
@@ -70,11 +72,12 @@ public class test4 {
             }
 
 
-            
-          }
+          }   
+          
             
             
         }
+      }
           
         
 

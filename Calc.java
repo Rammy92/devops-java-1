@@ -10,39 +10,60 @@ public class Calc {
     double y = 0;
     String operator;
      
-    System.out.println("Hello, it is a simple calculator that you can use. ");
+    System.out.println("Hello, this is a simple calculator that you can use. ");
     
     boolean isRunning = true;
     while (isRunning) {
     try
     {
-    System.out.println("Please enter a number: ");
+    System.out.println("Please enter first number: ");
     x = sc.nextDouble();
+    
     }
-     catch(InputMismatchException exception)
-    {
-        System.out.print("This is not a number! Try again."+"\n");
+     catch(InputMismatchException e)
+     {
+      System.out.print("This is not a number! Try again."+"\n");
+      System.out.println("Please enter first number: ");
+      sc.nextLine();
+      x = sc.nextDouble();
+      
+     }
+     
         
+      
         
-    }
-    sc.nextLine();
+   
+    
+     
+      
+      
+     
+    
 
-    System.out.println("choose an operator.");
+    System.out.println("choose an operator ( + , - , x , / ): ");
     operator = sc.next();
     if (!operator.equals("+") && !operator.equals("-") && !operator.equals("*") && !operator.equals("x") && !operator.equals("/")) {
-      System.out.println(" Type a valid operator!");
+      System.out.println(" Type a valid operator! ( + , - , x , / ) ");
+
+      operator = sc.next();
+    }
+    if (!operator.equals("+") && !operator.equals("-") && !operator.equals("*") && !operator.equals("x") && !operator.equals("/")) {
+      
     }
      
        
     try
     {
-    System.out.println("Enter another number: ");
-    y = sc.nextDouble();
+     System.out.println("Enter another number: ");
+     y = sc.nextDouble();
     }
     catch(InputMismatchException exception)
     {
-    System.out.print("This is not a number! Try again."+"\n");
-    
+     System.out.print("This is not a number! Try again."+"\n");
+     System.out.println("Enter another number: ");
+     sc.nextLine();
+     y = sc.nextDouble();
+     
     }
     
     sc.nextLine();
@@ -53,44 +74,48 @@ public class Calc {
     
     switch(operator) {
       case "+":
-      System.out.println(x +" "+ operator +" " + y + " = " + addition(x,y));
+      System.out.printf(x +" "+ operator +" " + y + " = " + "%.2f", addition(x,y) );
       break;
     
     case "-":
-      System.out.println(x + " " + operator + " " + y + " = " + subtraction(x,y));
+      System.out.printf(x + " " + operator + " " + y + " = " + "%.2f", subtraction(x,y) );
       break;
 
     case "x": 
     case "*":
-      System.out.println(x + " " + operator + " " + y + " = " + multiplication(x,y));
+      System.out.printf(x + " " + operator + " " + y + " = " + "%.2f", multiplication(x,y) );
+      
       break;
       
     case "/":
-      System.out.printf(x + " " + operator + " " + y + " = " + "%.2f", division(x,y));
+      System.out.printf(x + " " + operator + " " + y + " = " + "%.2f", division(x,y) );
       break;
       
     }
+            
+            System.out.println("");
+            System.out.println("Do you want to calculate more?Y/N");
+            String answer = sc.nextLine();
 
-            System.out.println("Do you want to continue?Y/N");
-         String answer = sc.nextLine();
-
-          if (answer.equals("Y")) {
+          if (answer.equalsIgnoreCase("Y")) {
             System.out.println( "" );
             
           }
-          if (answer.equals("N")) {
+          if (answer.equalsIgnoreCase("N")) {
             System.out.println("EXIT");
             isRunning = false;
           }
-            
-            
-
-          }   
           
             
+            }
+           
             
-        } 
-      
+            sc.close(); 
+            
+
+    }   
+          
+  
           
         
 

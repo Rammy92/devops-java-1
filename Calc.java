@@ -9,69 +9,76 @@ public class Calc {
     double x = 0;
     double y = 0;
     String operator;
-     
+    // This code will welcome the user.
     System.out.println("Hello, this is a simple calculator that you can use. ");
-    
+    // This code will allow the user to start the program from the beginning.
     boolean isRunning = true;
     while (isRunning) {
+    // The user have to enter a number, otherwise the loop will run again.
+    boolean  firstNumber = true;
+    while (firstNumber) {
     try
     {
-    System.out.println("Please enter first number: ");
-    x = sc.nextDouble();
     
+    System.out.println("Please enter first number: ");
+    
+    x = sc.nextDouble();
+    firstNumber = false;
     }
      catch(InputMismatchException e)
      {
-      System.out.print("This is not a number! Try again."+"\n");
-      System.out.println("Please enter first number: ");
       sc.nextLine();
-      x = sc.nextDouble();
+      firstNumber = true;
       
      }
      
-        
-      
+    } 
+  
         
    
     
      
       
       
-     
-    
-
+     // The user have to select an operator, otherwise the loop will run again.
+    do {
     System.out.println("choose an operator ( + , - , x , / ): ");
     operator = sc.next();
-    if (!operator.equals("+") && !operator.equals("-") && !operator.equals("*") && !operator.equals("x") && !operator.equals("/")) {
-      System.out.println(" Type a valid operator! ( + , - , x , / ) ");
+    
+    }
+    while  (!operator.equals("+") && !operator.equals("-") && !operator.equals("*") && !operator.equals("x") && !operator.equals("/"));
 
-      operator = sc.next();
-    }
-    if (!operator.equals("+") && !operator.equals("-") && !operator.equals("*") && !operator.equals("x") && !operator.equals("/")) {
-      
-    }
-     
-       
+
+
+
+
+
+     // The user have to enter a number, otherwise the loop will run again.  
+    boolean  secondNumber = true;
+    while (secondNumber) {
     try
     {
-     System.out.println("Enter another number: ");
-     y = sc.nextDouble();
+    
+    System.out.println("Please enter second number: ");
+    
+    y = sc.nextDouble();
+    secondNumber = false;
     }
-    catch(InputMismatchException exception)
-    {
-     System.out.print("This is not a number! Try again."+"\n");
-     System.out.println("Enter another number: ");
-     sc.nextLine();
-     y = sc.nextDouble();
+     catch(InputMismatchException e)
+     {
+      sc.nextLine();
+      secondNumber= true;
+      
+     }
      
-    }
+    } 
     
     sc.nextLine();
      
 
 
 
-    
+    // The system will print the calculation result, depends on which operator is selected by the user.
     switch(operator) {
       case "+":
       System.out.printf(x +" "+ operator +" " + y + " = " + "%.2f", addition(x,y) );
@@ -92,7 +99,7 @@ public class Calc {
       break;
       
     }
-            
+            // Ask the user if they wants to calculate again.
             System.out.println("");
             System.out.println("Do you want to calculate more?Y/N");
             String answer = sc.nextLine();

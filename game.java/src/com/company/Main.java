@@ -35,20 +35,20 @@ public class Main {
     public static void searchWeapon(String weaponName) {
         switch(weaponName) {
             case "Hammer":
-                System.out.println("The weapon that Good guy use is Hammer. " );
+                System.out.println(weaponName + " is used by the Good guy. " );
                 break;
             case "Magic Wand":
-                System.out.println("The weapon that Evil guy use is Magic Wand. ");
+                System.out.println(weaponName + " is used by the Evil guy. ");
                 break;
             default:
-                System.err.println("Cant find a hero that use this weapon");
+                System.err.println("Cant find a hero that use " + weaponName + " as a weapon.");
                 break;
         }
     }
 
     public void changeWeapon() {
         weaponName = "Excalibur";
-        System.out.print("The evil guy has changed his weapon to " + weaponName);
+        System.out.println("The evil guy has changed his weapon to " + weaponName + ".");
 
     }
 
@@ -71,5 +71,6 @@ public class Main {
         evilGuy.drinkingHealingPotion();
         searchWeapon("Hammer");
         evilGuy.changeWeapon();
+        searchWeapon("Spoon");
     }
 }
